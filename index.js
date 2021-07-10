@@ -6,6 +6,23 @@ window.onload = function () {
 
   let ulItems = document.getElementById("unorderedItems");
 
+
+  function sortNodes() {
+
+    nodes = ulItems.children, i = 1;
+    nodes = Array.prototype.slice.call(nodes);
+
+    nodes.sort(function (a, b) {
+      return parseInt(a.innerText, 10) -
+        parseInt(b.innerText, 10);
+    });
+
+    while (i < nodes.length) {
+      ulItems.appendChild(nodes[i]);
+      ++i;
+    }
+  }
+
   function shuffle(items) {
     let cached = items.slice(0), temp, i = cached.length, random;
     while (--i) {
@@ -26,23 +43,6 @@ window.onload = function () {
       ++i;
     }
   }
-
-  function sortNodes() {
-
-    nodes = ulItems.children, i = 1;
-    nodes = Array.prototype.slice.call(nodes);
-
-    nodes.sort(function (a, b) {
-      return parseInt(a.innerText, 10) -
-        parseInt(b.innerText, 10);
-    });
-
-    while (i < nodes.length) {
-      ulItems.appendChild(nodes[i]);
-      ++i;
-    }
-  }
-
 
 
 }
